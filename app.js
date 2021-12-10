@@ -13,7 +13,10 @@ app.use(
   })
 )
 
-//Handler user's role and infos
+// Handler user's role and infos
 app.use('/api/users', routes.Users)
+
+// Register a new user
+app.use('/api/register', routes.Register)
 
 module.exports = app;
