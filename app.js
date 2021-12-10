@@ -19,4 +19,7 @@ app.use('/api/users', routes.Users)
 // Register a new user
 app.use('/api/register', routes.Register)
 
+// Authentification for user of back-office
+app.use('/api/auth', routes.Authentification),
+
 module.exports = app;
