@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const cors = require('cors')
-
+const routes = require('./src/routes/index')
 
 app.use(cors())
 
@@ -12,5 +12,8 @@ app.use(
     extended: true
   })
 )
+
+//Handler user's role and infos
+app.use('/api/users', routes.Users)
 
 module.exports = app;
