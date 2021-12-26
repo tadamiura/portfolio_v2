@@ -20,7 +20,11 @@ const checkUser = (req, res, next) => {
             password, result[0].password
           )
         if (!passwordIsValid) {
-            return res.status(401).send({ auth: false, token: null })
+            return res.status(401).send({ 
+                auth: false, 
+                jwtToken: null,
+                user: null
+         })
         }
         req.user = result[0]
         next()
@@ -44,7 +48,11 @@ const createToken = (req, res, next) => {
 
 		res.header('Access-Control-Expose-Headers', 'x-access-token')
 		res.set('x-access-token', token)
-        res.status(200).send({ auth: true })
+        res.status(200).send({ 
+            auth: true,
+            jwtToken: token,
+            user: tokenUserInfo
+         })
 }
 
 router.post('/', emailValidator, checkUser, createToken)
