@@ -8,7 +8,7 @@ const router = express.Router()
 //Get all users
 router.get('/', (req, res) => {
     const sql =
-    `SELECT id, lastname, firstname, email, role
+    `SELECT id, lastname, firstname, email, role, gender
     FROM user_of_bo`
     connection.query(sql, (err, result) => {
         if (err) {
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const idUser = req.params.id
     const sql =
-    `SELECT id, lastname, firstname, email, role
+    `SELECT id, lastname, firstname, email, role, gender
     FROM user_of_bo
     WHERE id = ?`
     connection.query(sql, [idUser], (err, result) => {

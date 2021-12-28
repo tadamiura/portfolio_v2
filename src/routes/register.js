@@ -19,7 +19,9 @@ const checkUser = (req, res, next) => {
 		lastname: req.body.lastname,
 		firstname: req.body.firstname,
 		email : req.body.email,
-		password: bcrypt.hashSync(req.body.password)
+		password: bcrypt.hashSync(req.body.password),
+        role: req.body.role,
+        gender: req.body.gender
 		}
 		req.user = user
 		next()
